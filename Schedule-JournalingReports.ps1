@@ -53,10 +53,25 @@ V1.00, 2025/07/01 - DrPe - Initial version
 #>
 #endregion
 ##############################################################################################################
-[cmdletbinding()]
+
 param(
-[switch]$accepteula,
-[switch]$v)
+    [cmdletbinding()]
+
+    [Parameter(Mandatory=$false)]
+    [switch]$accepteula,
+	
+    [Parameter(Mandatory=$true)]
+    [string]$JournalEmailAddress,
+    
+    [Parameter(Mandatory=$false)]
+    [string]$ReportPath = "C:\MDM\journaling\ExchangeReports",
+    
+    [Parameter(Mandatory=$false)]
+    [string]$ScriptPath = "C:\MDM\journaling\Configure-ExchangeJournaling.ps1",
+    
+    [Parameter(Mandatory=$false)]
+    [string]$TaskName = "Exchange Online Monthly Report"
+)
 
 ###############################################################################
 #Script Name variable
@@ -250,19 +265,7 @@ write-host ""
     Creates a scheduled task to run monthly journaling reports automatically
 #>
 
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$JournalEmailAddress,
-    
-    [Parameter(Mandatory=$false)]
-    [string]$ReportPath = "C:\MDM\journaling\ExchangeReports",
-    
-    [Parameter(Mandatory=$false)]
-    [string]$ScriptPath = "C:\MDM\journaling\Configure-ExchangeJournaling.ps1",
-    
-    [Parameter(Mandatory=$false)]
-    [string]$TaskName = "Exchange Online Monthly Report"
-)
+
 
 # Function to create scheduled task
 function Create-ScheduledTask {
