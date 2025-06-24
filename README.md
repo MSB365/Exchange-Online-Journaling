@@ -55,24 +55,6 @@ A comprehensive PowerShell solution for configuring Exchange Online journaling a
 - **Compliance Administrator** permissions (for journaling)
 - **Windows 10/11** or **Windows Server 2016+**
 
-### Installation
-
-1. **Clone the repository:**
-   ```powershell
-   git clone https://github.com/yourusername/exchange-journaling.git
-   cd exchange-journaling
-   ```
-
-2. **Install required modules:**
-   ```powershell
-   Install-Module -Name ExchangeOnlineManagement -Force -AllowClobber
-   ```
-
-3. **Set execution policy (if needed):**
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-   ```
-
 ### Basic Usage
 
 ```powershell
