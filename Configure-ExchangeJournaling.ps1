@@ -56,10 +56,30 @@ V1.00, 2025/07/01 - DrPe - Initial version
 #>
 #endregion
 ##############################################################################################################
-[cmdletbinding()]
 param(
-[switch]$accepteula,
-[switch]$v)
+    [cmdletbinding()]
+
+    [Parameter(Mandatory=$false)]
+    [switch]$accepteula,
+	
+    [Parameter(Mandatory=$true)]
+    [string]$JournalEmailAddress,
+    
+    [Parameter(Mandatory=$false)]
+    [string]$UndeliverableReportsAddress,
+    
+    [Parameter(Mandatory=$false)]
+    [string]$ReportPath = "C:\MDM\journaling\ExchangeReports",
+    
+    [Parameter(Mandatory=$false)]
+    [int]$MonthsBack = 1,
+    
+    [Parameter(Mandatory=$false)]
+    [switch]$UseHistoricalSearch = $false,
+    
+    [Parameter(Mandatory=$false)]
+    [switch]$SkipJournalingConfig = $false
+)
 
 ###############################################################################
 #Script Name variable
@@ -266,25 +286,7 @@ write-host ""
     Skip journaling configuration and only generate reports
 #>
 
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$JournalEmailAddress,
-    
-    [Parameter(Mandatory=$false)]
-    [string]$UndeliverableReportsAddress,
-    
-    [Parameter(Mandatory=$false)]
-    [string]$ReportPath = "C:\MDM\journaling\ExchangeReports",
-    
-    [Parameter(Mandatory=$false)]
-    [int]$MonthsBack = 1,
-    
-    [Parameter(Mandatory=$false)]
-    [switch]$UseHistoricalSearch = $false,
-    
-    [Parameter(Mandatory=$false)]
-    [switch]$SkipJournalingConfig = $false
-)
+
 
 # Import required modules
 try {
